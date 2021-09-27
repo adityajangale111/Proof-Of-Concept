@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!--{%if messages%}
+
+      {%for message in messages%}
+      <p {%if message.tags%} class="alert alert-{{message.tags}} mb-5" {%endif%}>{{message}}</p>
+      {%endfor%}
+
+    {%endif%}-->
+{% for i in read %}
+            <div class="card bg-dark text-primary mx-auto" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title" style="text-align: center;">Customer Details</h5>
+                  Customer Id:<h3>{{i.id}}</h3>
+                  <p>Transdate :{{i.Transdate}}</p>
+                  <p>Customer FName :{{i.Cfname}}</p>                  
+                  <p>Customer LName :{{i.Clname}}</p>
+                  <p>Country :{{i.Country}}</p>
+                  <p>City :{{i.Ccity}}</p>
+                  <p>Product Type :{{i.Ptype}}</p>
+                  <p>Product :{{i.Product}}</p>
+                  <p>Product Quantity :{{i.Qty}}</p>
+                  <p>Product Amount :{{i.Amount}}</p>
+                  <p>Status :{{i.Active}}</p>
+
+                  <a href="{%url 'updateorder' i.id%}" class="card-link btn btn-primary">Update</a>
+                  <a href="{%url 'deleteorder' i.id%}" class="card-link btn btn-danger">Delete</a>
+
+                </div>
+              </div>
+              <br>
+{% endfor %}
+{% endblock %}
+
+

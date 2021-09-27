@@ -1,0 +1,138 @@
+<!-- header -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <style>
+    *{
+margin:0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Poppins',sans-serif;
+}
+
+.navbar{
+background: #131313;
+padding:1rem 8rem;
+z-index:1000;
+}
+
+.navbar .navbar-brand{
+font-size: 1.4rem;
+font-weight: 700;
+}
+
+#navbarSupportedContent > ul >li:nth-child(n) >a{
+color: #fff;
+font-size: 1.1rem;
+padding: 0 0.8rem;
+}
+
+#navbarSupportedContent > ul >li:nth-child(n) >a:hover{
+color: #00BF85;
+}
+#navbarSupportedContent > button{
+background: #00BF85;
+font-weight: 600;
+padding: 0.4rem 1.4rem;
+border-radius: 30px;
+}
+    .bcontent {
+        margin-top: 10px;
+    }
+
+.div.hover-shadow {
+transition: 0.3s;
+}
+
+.div {
+padding: 50px;
+background-color:ghostwhite;
+transition: transform .2s;
+width: 900px;
+height: 120px;
+margin: 0 150px;
+}
+
+
+body{
+background-color: gainsboro;
+
+}
+hr{
+background-color: gainsboro;
+}
+.demo{
+    margin-top: 8%;
+}
+
+</style>
+  <body>
+    
+<nav class="navbar navbar-expand-lg navbar-light  fixed-top" style="background-color: #FFBF00;" >
+    <a class="navbar-brand" style="color: #fff;" href="/">POC Admin</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'adminread'%}">Update</a>
+          </li>  
+         
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'adminlogout'%}">Logout</a>
+          </li>
+    </ul>
+        
+    </div>
+  </nav>
+<!--{%if messages%}
+
+      {%for message in messages%}
+      <p {%if message.tags%} class="alert alert-{{message.tags}} mb-5" {%endif%}>{{message}}</p>
+      {%endfor%}
+
+    {%endif%}-->
+    <div class='demo'>
+{% for i in adminread %}
+        
+            <div class="card bg-dark text-primary mx-auto" style="width: 18rem;" >
+                <div class="card-body">
+                  <h5 class="card-title" style="text-align: center;">Customer Details</h5>
+                  Customer Id:<h3>{{i.id}}</h3>
+                  <p>Transdate :{{i.Transdate}}</p>
+                  <p>Customer FName :{{i.Cfname}}</p>                  
+                  <p>Customer LName :{{i.Clname}}</p>
+                  <p>Country :{{i.Country}}</p>
+                  <p>City :{{i.Ccity}}</p>
+                  <p>Product Type :{{i.Ptype}}</p>
+                  <p>Product :{{i.Product}}</p>
+                  <p>Product Quantity :{{i.Qty}}</p>
+                  <p>Product Amount :{{i.Amount}}</p>
+                  <p>Status :{{i.Active}}</p>
+
+                  <a href="{%url 'adminupdate' i.id%}" class="card-link btn btn-primary">Update</a>
+
+                </div>
+              </div>
+              <br>
+    {%endfor%}
+    </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>
